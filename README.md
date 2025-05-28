@@ -60,3 +60,34 @@ anchor test
 ## 📄 License
 
 MIT License
+
+## 🚀 Deployment Instructions
+
+### Prerequisites
+- Solana CLI
+- Anchor CLI
+- Node.js + Yarn
+
+### Devnet Deployment
+```bash
+solana config set --url https://api.devnet.solana.com
+solana-keygen new --outfile ~/.config/solana/befrank-devnet.json
+solana config set --keypair ~/.config/solana/befrank-devnet.json
+solana airdrop 2
+anchor build
+anchor deploy
+```
+
+### Mainnet Deployment
+```bash
+solana config set --url https://api.mainnet-beta.solana.com
+solana config set --keypair ~/.config/solana/befrank-mainnet.json
+# Ensure wallet is funded manually
+anchor build
+anchor deploy
+```
+
+### Run Tests
+```bash
+anchor test
+```
